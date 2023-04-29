@@ -1,0 +1,24 @@
+html
+Copy
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculate Total Price</title>
+</head>
+<body>
+    <h1>Calculate Total Price</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="price">Price:</label>
+        <input type="number" name="price" id="price" required>
+        <br><br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required>
+        <br><br>
+        <button type="submit">Calculate</button>
+    </form>
+    {% if total_price %}
+        <p>The total price for {{ quantity }} items at ${{ price }} each is ${{ total_price }}</p>
+    {% endif %}
+</body>
+</html>
